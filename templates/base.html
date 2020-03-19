@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type=text/css href="{{url_for('static', filename='styles.css')}}">
+    
+    <title>Url Stump</title>
+</head>
+</body>
+    <!-- header -->
+    <div class="jumbotron">
+        <h1 class="display-5">Url Stump</h1>
+        <p class="lead">Simple url shortener</p>
+        <hr class="my-4">
+        <p>Build with Python, Flask and Sqlite.</p>
+      </div>
+
+    <!-- header end -->
+    <div class='container'>
+        {% block content %}
+
+        {% endblock %}
+
+        <!-- app ends -->
+    </div>
+</body>
+
+</html>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>

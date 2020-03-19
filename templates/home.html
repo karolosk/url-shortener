@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+{% block content%}
+<div>
+    <form method="post">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-11">
+                    <input type="text" class="form-control" id="original-url" name="original-url" aria-describedby="input-help" placeholder="Enter url">
+                    <small id="input-help" class="form-text text-muted">We'll store this for later use as well.</small>
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+      </form>  
+</div>
+
+<div>
+    <p>asdsdasa </p>
+</div>
+
+<hr>
+
+<div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">URL</th>
+            <th scope="col">URL Stump</th>
+            <th scope="col">Created</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for row in all_urls %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+</div>
+{% endblock%}
