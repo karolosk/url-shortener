@@ -9,7 +9,7 @@ class Schema:
     def create_url_table(self):
 
         query = """
-        CREATE TABLE IF NOT EXISTS "url" (
+        CREATE TABLE IF NOT EXISTS url (
           id INTEGER PRIMARY KEY,
           original_url TEXT,
           url_shorted TEXT,
