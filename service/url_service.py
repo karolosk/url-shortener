@@ -1,10 +1,9 @@
-from models.url_model import UrlModel
-
+from url_model import Url
 
 class UrlService:
     
     def __init__(self):
-        self.model = UrlModel()
+        self.model = Url()
 
     def create(self, url, short_url):
         return self.model.create(url, short_url)

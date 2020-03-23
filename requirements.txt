@@ -1,2 +1,7 @@
 flask
 gunicorn
+flask-heroku
+SQLAlchemy
+Flask-SQLAlchemy
+psycopg2-binary
+python-dotenv
