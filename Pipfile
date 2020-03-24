@@ -11,6 +11,7 @@ psycopg2-binary = "*"
 flask-sqlalchemy = "*"
 gunicorn = "*"
 python-dotenv = "*"
+validators = "*"
 
 [requires]
 python_version = "3.6"
