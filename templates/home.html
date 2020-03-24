@@ -3,9 +3,7 @@
 {% block content%}
 <div>
 
-    {% if message %}
-        <p class="message">{{ message | safe}}</p>
-    {% endif%}
+
     <form action="/submit" method="POST">
         <div class="form-group">
             <div class="row">
@@ -18,7 +16,17 @@
                 </div>
             </div>
         </div>
-      </form>  
+      </form> 
+    {% if message %}
+    <div class="row">
+        <div class="col-10">
+            <p class="message">{{ message | safe}}</p>  
+        </div>
+        <div class="col-2">
+            <p>Copy to clipboard</p>
+        </div>
+    </div>
+  {% endif%} 
 </div>
 
 

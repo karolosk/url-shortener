@@ -1,8 +1,7 @@
 from models.url_model import Url
-from errors.not_valid_url_error import NotValidUrlException
+from errors.custom_errors import NotValidUrlException, ShortedUrlNotFoundException
 import validators
 import uuid
-import os
 
 
 class UrlService:
@@ -14,7 +13,7 @@ class UrlService:
             if url_to_return:
                 return url_to_return
             else:
-                shorted_url = os.getenv("HOST") + self.generate_short_link(session)
+                shorted_url = self.generate_short_link(session)
                 url_to_return = Url(url_to_stump, shorted_url)
                 session.add(url_to_return)
                 session.commit()
@@ -23,10 +22,17 @@ class UrlService:
             raise NotValidUrlException
 
     def generate_short_link(self, session):
-        short_url = uuid.uuid4().hex[:6]
-        link = session.query(Url).filter_by(shorted_url=short_url).first()
+        shorted_url = uuid.uuid4().hex[:6]
+        link = session.query(Url).filter_by(shorted_url=shorted_url).first()
 
         if link:
             return self.generate_short_link()
 
-        return short_url
+        return shorted_url
+
+    def find_url(self, session, shorted_url):
+        url = session.query(Url).filter_by(shorted_url=shorted_url).first()
+        if url:
+            return url.original_url
+        else:
+            raise ShortedUrlNotFoundException
