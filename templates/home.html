@@ -12,45 +12,26 @@
                     <small id="input-help" class="form-text text-muted">We'll store this for later use as well.</small>
                 </div>
                 <div class="col-1">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Short</button>
                 </div>
             </div>
+            {% if message %}
+            <div class="row">
+                <div class="col-11">
+                    <input id="data" value="{{ message | safe}}" class="form-control">
+                </div>
+                    <!-- Trigger -->
+                <div class="col-1">
+                    <button class="btn btn-success" data-clipboard-target="#data">
+                        Copy
+                    </button>  
+                </div>
+            </div>
+            {% endif%} 
         </div>
       </form> 
-    {% if message %}
-    <div class="row">
-        <div class="col-10">
-            <p class="message">{{ message | safe}}</p>  
-        </div>
-        <div class="col-2">
-            <p>Copy to clipboard</p>
-        </div>
-    </div>
-  {% endif%} 
+    
 </div>
 
 
-<hr>
-
-<div>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">URL</th>
-            <th scope="col">URL Stump</th>
-            <th scope="col">Created</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for row in all_urls %}
-        <tr>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-
-</div>
 {% endblock%}
