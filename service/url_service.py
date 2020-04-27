@@ -21,6 +21,7 @@ class UrlService:
         else:
             raise NotValidUrlException
 
+        
     def generate_short_link(self, session):
         shorted_url = uuid.uuid4().hex[:6]
         link = session.query(Url).filter_by(shorted_url=shorted_url).first()
@@ -29,6 +30,7 @@ class UrlService:
             return self.generate_short_link()
 
         return shorted_url
+
 
     def find_url(self, session, shorted_url):
         url = session.query(Url).filter_by(shorted_url=shorted_url).first()
